@@ -13,9 +13,9 @@ class DogsListContainer extends Component {
     render() {
         return (
             <div>
-                <Button onclick="">Play game 1</Button>
-                <Button onclick="">Play game 2</Button>
-                <Button onclick="">Play game 3</Button>
+                <Button title="Play game 1" onclick="" />
+                <Button title="Play game 2" onclick="" />
+                <Button title="Play game 3" onclick="" />
                 <DogsList dogBreeds={this.props.dogBreeds} />
             </div>
         )
