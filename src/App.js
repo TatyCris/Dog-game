@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
-// import { Route }  from 'react-router-dom'
+import DogsListContainer from './components/DogsListContainer';
+import { Route }  from 'react-router-dom'
+
 
 
 export default class App extends Component {
@@ -8,7 +10,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <Route exact path="/" component={} /> */}
+          {/* <DogsListContainer /> */}
+          <Route exact path="/" component={DogsListContainer} />
         </header>
       </div>
     )
