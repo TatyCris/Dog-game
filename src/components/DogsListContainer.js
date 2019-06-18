@@ -11,13 +11,16 @@ class DogsListContainer extends Component {
         this.props.getBreeds()
     }
 
+    clicked = () => {
+
+    }
     render() {
         return (
             <div>
                 <Title content="Wello from DogsList component :)"/>
-                <Button title="Play game 1" onclick="" />
-                <Button title="Play game 2" onclick="" />
-                <Button title="Play game 3" onclick="" />
+                <Button title="Play game 1" onclick={this.clicked} />
+                <Button title="Play game 2" onclick={this.clicked} />
+                <Button title="Play game 3" onclick={this.clicked} />
                 <DogsList dogBreeds={this.props.dogBreeds} />
             </div>
         )
