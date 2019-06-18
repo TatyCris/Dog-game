@@ -6,11 +6,11 @@ Component {
   static propTypes = {
     
   }
-  
+
   render() {
     return (
       <div>
-        
+        <hi1>Hello from Single Dog component :)</hi1>
       </div>
     )
   }
