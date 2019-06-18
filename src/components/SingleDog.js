@@ -10,7 +10,7 @@ Component {
   render() {
     return (
       <div>
-        <hi1>Hello from Single Dog component :)</hi1>
+        <hi>Hello from Single Dog component :)</hi>   {/* Replace this with a title component */}
       </div>
     )
   }

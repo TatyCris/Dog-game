@@ -12,7 +12,9 @@ class DogsListContainer extends Component {
 
     render() {
         return (
+
             <div>
+                <h1>Hello from DogsList component :)</h1>   {/* Replace this with a title component */}
                 <Button title="Play game 1" onclick="" />
                 <Button title="Play game 2" onclick="" />
                 <Button title="Play game 3" onclick="" />
