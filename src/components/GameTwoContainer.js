@@ -6,7 +6,7 @@ export default class GameTwoContainer extends Component {
         return (
             <div>
             <Title content="Welcome to game Two"/>
-            <h3>Random breed name</h3>
+            
             <GameTwo />
             </div>
         )
