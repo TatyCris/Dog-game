@@ -4,7 +4,7 @@ import DogsListContainer from './components/DogsListContainer';
 import DogBreedImagesContainer from './components/DogBreedImagesContainer';
 import { Route } from 'react-router-dom'
 import Game1Container from './components/GameOneContainer'
-import GameTwoContainer from './components/GameOneContainer'
+import GameTwoContainer from './components/GameTwoContainer'
 
 
 

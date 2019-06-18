@@ -12,7 +12,8 @@ class DogBreedImagesContainer extends Component {
 
 
   render() {
-    return <DogBreedImages images={this.props.dogBreeds} title={this.props.match.params.breed} />
+    return <DogBreedImages 
+    images={this.props.dogBreeds} title={this.props.match.params.breed} />
   }
 }
 

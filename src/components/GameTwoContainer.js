@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import GameTwo from './GameTwo'
 import { connect } from 'react-redux'
-
+import 
 
  class GameTwoContainer extends Component {
-
+    componentDidMount() {
+        const breed = this.props.match.params.breed
+        this.props.getBreedImages(breed)
+      }
     chooseRamdomBreed = (breeds) => {
         return breeds[Math.floor(Math.random() * breeds.length)]
     }
@@ -33,7 +36,7 @@ import { connect } from 'react-redux'
     render() {
         return (
             <div>
-            <GameTwo />
+            <GameTwo image=""/>
             </div>
         )
     }
