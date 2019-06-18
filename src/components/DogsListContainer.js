@@ -13,7 +13,6 @@ class DogsListContainer extends Component {
 
     render() {
         return (
-
             <div>
                 <Title content="Wello from DogsList component :)"/>
                 <Button title="Play game 1" onclick="" />

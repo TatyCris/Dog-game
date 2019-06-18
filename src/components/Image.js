@@ -6,11 +6,12 @@ export default class Image extends Component {
     static propTypes = {
         url: propTypes.string.isRequired,
         alt: propTypes.string.isRequired,
-        className: propTypes.string
+        className: propTypes.string,
+        onClick: propTypes.func
     }
     render() {
         return (
-                <img src={this.props.url} alt={this.props.alt} className={this.props.className} />
+                <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} />
         )
     }
 }
