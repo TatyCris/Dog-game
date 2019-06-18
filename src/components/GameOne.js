@@ -9,7 +9,7 @@ export default class GameOne extends Component {
   render() {
     return (
       <div>
-        <Title content="Wellcome to game one"/>
+        <Title content="Which breed matches the picture below?"/>
         <Image ulr="#" alt="specificDogBreed"></Image>
         <Button title="first random name" onClick=""/>
         <Button title="second random name" onClick=""/>

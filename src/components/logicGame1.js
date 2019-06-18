@@ -27,7 +27,7 @@ function getAnswers(breeds) {
 }
 
 function mixAnswers(answers) {
-    return shuffledAnswers = answers.sort(() => Math.random() - 0.5);
+    return answers.sort(() => Math.random() - 0.5);
 }
 
 console.log('mixed', mixAnswers(getAnswers(breeds)));
