@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import GameTwo from './GameTwo'
 import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
+import GameTwo from './GameTwo'
 
 class GameTwoContainer extends Component {
     componentDidMount() {
@@ -36,13 +36,20 @@ class GameTwoContainer extends Component {
 
     }
 
+ 
     render() {
         return (
             <div>
-                <GameTwo image="" />
+            
+            <GameTwo images={this.props.dogBreeds} />
             </div>
         )
     }
 }
-
-export default connect(null, { getImages })(GameTwoContainer)
+const mapStatetoProps = (state) => {
+    return {
+        dogBreeds: state.breeds
+    }
+  }
+  
+  export default connect (mapStatetoProps, { getImages })(GameTwoContainer)
