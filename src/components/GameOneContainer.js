@@ -3,6 +3,8 @@ import GameOne from './GameOne';
 import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
+import swal from "sweetalert";
+
 
 class Game1Container extends Component {
     state = { answers: [] }
@@ -54,6 +56,19 @@ class Game1Container extends Component {
     }
 
     checkAnswer = (event) => {
+        console.log('event', event.target.title)
+        console.log('state', this.state.answers[2])
+
+
+        console.log(event.target);
+        if (event.target.value === this.state.answers[2]) {
+
+            swal({
+                text: "CORRECT!",
+                buttons: "NEXT QUESTION",
+                icon: "success"
+            })
+        }
 
     }
 
@@ -67,14 +82,14 @@ class Game1Container extends Component {
 
         return (
             <div>
-                <GameOne 
-                answers={this.mixAnswers()} 
-                image={this.props.dogImage} 
-                checkAnswer={this.checkAnswer}
-                score={this.props.score}
-                total={this.props.total}
-                lives={this.props.lives}
-                
+                <GameOne
+                    answers={this.mixAnswers()}
+                    image={this.props.dogImage}
+                    checkAnswer={this.checkAnswer}
+                    score={this.props.score}
+                    total={this.props.total}
+                    lives={this.props.lives}
+
                 />
             </div>
         )
