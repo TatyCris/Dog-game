@@ -1,0 +1,22 @@
+.scoreBarContainer{
+    height: 30px;
+    margin: 10px auto;
+    width: 90%;
+    padding: 0;
+}
+.scoreBar{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background: #bdc3c7;
+    border-radius: 4px;
+    width: 100%
+}
+.progress{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background: #2ecc71;
+    border-radius: 4px;
+    width: 10%
+}
