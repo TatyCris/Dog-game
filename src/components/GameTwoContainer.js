@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import GameTwo from './GameTwo'
 import { connect } from 'react-redux'
-import 
+import { getImages } from '../actions/images'
 
- class GameTwoContainer extends Component {
+class GameTwoContainer extends Component {
     componentDidMount() {
         const breed = this.props.match.params.breed
-        this.props.getBreedImages(breed)
-      }
+        this.props.getImages(breed)
+    }
+
     chooseRamdomBreed = (breeds) => {
         return breeds[Math.floor(Math.random() * breeds.length)]
     }
+
     getImages = (breeds) => {
         const randomImage1 = this.chooseRamdomBreed(breeds)
         let randomImage2 = this.chooseRamdomBreed(breeds)
@@ -33,13 +35,14 @@ import
         return images
 
     }
+
     render() {
         return (
             <div>
-            <GameTwo image=""/>
+                <GameTwo image="" />
             </div>
         )
     }
 }
 
-export default connect()(GameTwoContainer)
+export default connect(null, { getImages })(GameTwoContainer)
