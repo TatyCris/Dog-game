@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Image from './Image'
 import Score from './Score'
 import Title from './Title'
 
-export default class GameTwo extends Component {
-  render() {
+export default function GameTwo (props) {
+
     return (
       <div>
         <Title content="Welcome to game Two" />
@@ -15,5 +15,5 @@ export default class GameTwo extends Component {
         <Score />
       </div>
     )
-  }
+  
 }

@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
-import Title from './Title'
+import { connect } from 'react-redux'
+import { getBreedImages } from '../actions/oneBreed'
 import GameTwo from './GameTwo'
-export default class GameTwoContainer extends Component {
+
+class GameTwoContainer extends Component {
+    componentDidMount() {
+        const breed = this.props.match.params.breed
+        this.props.getBreedImages(breed)
+      }
     render() {
         return (
             <div>
             
-            <GameTwo />
+            <GameTwo images={this.props.dogBreeds} />
             </div>
         )
     }
 }
+const mapStatetoProps = (state) => {
+    return {
+        dogBreeds: state.breeds
+    }
+  }
+  
+  export default connect (mapStatetoProps, { getBreedImages })(GameTwoContainer)
