@@ -3,6 +3,8 @@ import GameOne from './GameOne';
 import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
+import swal from "sweetalert";
+
 
 class Game1Container extends Component {
     state = { answers: [] }
@@ -53,6 +55,23 @@ class Game1Container extends Component {
         return this.state.answers.sort(() => Math.random() - 0.5);
     }
 
+    checkAnswer = (event) => {
+        console.log('event', event.target.title)
+        console.log('state', this.state.answers[2])
+
+
+        console.log(event.target);
+        if (event.target.value === this.state.answers[2]) {
+
+            swal({
+                text: "CORRECT!",
+                buttons: "NEXT QUESTION",
+                icon: "success"
+            })
+        }
+
+    }
+
     render() {
         const hasBreeds = this.props.dogBreeds.length;
         const hasImage = this.props.dogImage.length;
@@ -63,19 +82,27 @@ class Game1Container extends Component {
 
         return (
             <div>
-                <GameOne answers={this.mixAnswers()} image={this.props.dogImage} />
+                <GameOne
+                    answers={this.mixAnswers()}
+                    image={this.props.dogImage}
+                    checkAnswer={this.checkAnswer}
+                    score={this.props.score}
+                    total={this.props.total}
+                    lives={this.props.lives}
+
+                />
             </div>
         )
     }
 }
 
 const mapStatetoProps = (state) => {
-    console.log('mapsImages', state.dogs.images);
-    console.log('mapsBreeds', state.dogs.breeds);
-
     return {
         dogBreeds: state.dogs.breeds,
-        dogImage: state.dogs.images
+        dogImage: state.dogs.images,
+        score: state.game1.score,
+        total: state.game1.total,
+        lives: state.game1.lives
     }
 }
 
