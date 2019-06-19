@@ -21,7 +21,7 @@ class DogsListContainer extends Component {
                 <Title content="Wello from DogsList component :)" />
                 <Link to={`/game1`}><Button title="Play game 1" onclick={this.clicked} /></Link>
                 <Link to={`/game2`}><Button title="Play game 2" onclick={this.clicked} /></Link>
-                <Link to={`/game3`}><Button title="Play game 3"  onclick={this.clicked}/></Link>
+                <Link to={`/game3`}><Button title="Play game 3" onclick={this.clicked}/></Link>
                 <DogsList dogBreeds={this.props.dogBreeds} />
             </div>
         )

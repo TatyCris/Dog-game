@@ -72,10 +72,6 @@ class Game1Container extends Component {
 
     }
 
-    goHome = () =>{
-        
-    }
-
     render() {
         const hasBreeds = this.props.dogBreeds.length;
         const hasImage = this.props.dogImage.length;

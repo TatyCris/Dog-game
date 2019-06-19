@@ -3,6 +3,8 @@ import Image from './Image'
 import Button from './Button'
 import Title from './Title'
 import Score from './Score'
+import { Link } from 'react-router-dom'
+
 
 
 export default class GameOne extends Component {
@@ -11,7 +13,7 @@ export default class GameOne extends Component {
     return (
       
       <div>
-        <Button title='Got to Home Page' onclick={this.props.goHome}/>
+        <Link to={`/`}><Button title="go to Home Page" onclick={this.clicked} /></Link>
         <Title content="Which breed matches the picture below?"/>
         <Image url={this.props.image} alt="specificDogBreed"></Image>
         <br/>
