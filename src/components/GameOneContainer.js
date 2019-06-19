@@ -11,24 +11,17 @@ class Game1Container extends Component {
         this.props.getBreeds()
     }
 
-    componentDidUpdate(prevProps, nextProps) {
+    componentDidUpdate(prevProps) {
         if (prevProps.dogBreeds !== this.props.dogBreeds) {
             this.setAnswers()
         }
     }
-    
+
     setAnswers() {
         this.setState({
             answers: this.getAnswers()
-            
-        }, () => {
-            this.props.getImages(this.state.answers[2], 1)
         })
     }
-
-
-
-
 
     chooseRamdomBreed = () => {
         return this.props.dogBreeds[Math.floor(Math.random() * this.props.dogBreeds.length)]
@@ -53,11 +46,7 @@ class Game1Container extends Component {
             correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
         }
 
-        const answers = [randomAnswer1, randomAnswer2, correctAnswer]
-        // const imageQuestion = this.props.dogBreeds.find(breed => breed === answers[2])
-        // console.log('image', imageQuestion);
-
-        return answers
+        return [randomAnswer1, randomAnswer2, correctAnswer]
     }
 
     mixAnswers = () => {
@@ -65,20 +54,29 @@ class Game1Container extends Component {
     }
 
     render() {
+        const hasBreeds = this.props.dogBreeds.length;
+        const hasImage = this.props.dogImage.length;
+
+        if (hasBreeds && hasImage === 0) {
+            this.props.getImages(this.state.answers[2], 1)
+        }
+
         return (
             <div>
-                <GameOne answers={this.mixAnswers()} image={this.props.dogImages} />
+                <GameOne answers={this.mixAnswers()} image={this.props.dogImage} />
             </div>
         )
     }
 }
 
 const mapStatetoProps = (state) => {
+    console.log('mapsImages', state.dogs.images);
+    console.log('mapsBreeds', state.dogs.breeds);
+
     return {
         dogBreeds: state.dogs.breeds,
-        dogImages: state.dogs.images
+        dogImage: state.dogs.images
     }
 }
 
 export default connect(mapStatetoProps, { getImages, getBreeds })(Game1Container)
-// export default connect (mapStatetoProps, { getBreedImages })(DogBreedImagesContainer)
