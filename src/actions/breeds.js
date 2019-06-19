@@ -16,5 +16,6 @@ export function getBreeds() {
             .then(response => {
                 dispatch(setBreeds(Object.keys(response.body.message)))
             })
+            .catch(console.error)
     }
 } 

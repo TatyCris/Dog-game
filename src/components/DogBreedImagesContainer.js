@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import DogBreedImages from './DogBreedImages'
 import { connect } from 'react-redux'
-import { getBreedImages } from '../actions/oneBreed'
+import { getImages } from '../actions/images'
 
 class DogBreedImagesContainer extends Component {
 
   componentDidMount() {
     const breed = this.props.match.params.breed
-    this.props.getBreedImages(breed)
+    this.props.getImages(breed, 10)
   }
 
 
@@ -19,8 +19,8 @@ class DogBreedImagesContainer extends Component {
 
 const mapStatetoProps = (state) => {
   return {
-      dogBreeds: state.breeds
+      dogBreeds: state.dogs.images
   }
 }
 
-export default connect (mapStatetoProps, { getBreedImages })(DogBreedImagesContainer)
+export default connect (mapStatetoProps, { getImages })(DogBreedImagesContainer)
