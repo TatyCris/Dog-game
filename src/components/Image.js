@@ -10,6 +10,7 @@ export default class Image extends Component {
         onClick: propTypes.func
     }
     render() {
+        
         return (
                 <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} />
         )
