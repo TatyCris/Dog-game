@@ -1,8 +1,8 @@
-export const NEXT_QUESTION = 'NEXT_QUESTION'
+export const ANSWERS = 'ANSWERS'
 
-export const nextQuestion = () => {
+export const getAnswers = (answers) => {
     return {
-        type: NEXT_QUESTION,
-        payload: []
+        type: ANSWERS,
+        payload: [...answers]
     }
 }

@@ -1,6 +1,7 @@
-import { NEXT_QUESTION } from '../actions/game1'
+import { ANSWERS } from '../actions/game1'
 
 const initialState = {
+    answers: '',
     score: 0,
     total: 0,
     lives: 3
@@ -8,7 +9,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case NEXT_QUESTION:
+        case ANSWERS:
             return {
                 ...state,
                 answers: action.payload
