@@ -11,7 +11,7 @@ export default class Button extends Component {
     // console.log('hi', this.props);
     
     return (
-      <button value={this.props.title} onClick={this.props.checkAnswer}>{this.props.title}</button>
+      <button value={this.props.title} onClick={this.props.checkAnswer} onclick={this.props.onclick}>{this.props.title} </button>
     )
   }
 }
