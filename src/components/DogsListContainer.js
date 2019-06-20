@@ -7,21 +7,30 @@ import Title from './Title'
 import { Link } from 'react-router-dom'
 
 class DogsListContainer extends Component {
-
+    state = {
+        urls: [
+            `/game1`,
+            `/game2`
+        ]
+    }
     componentDidMount() {
         this.props.getBreeds()
     }
 
-    clicked = () => {
 
+    randomNumber = () => {
+        return Math.floor(Math.random() * 2)
     }
+
+
     render() {
+        console.log('RANDOM GAME !!!', this.radnomGame())
         return (
             <div>
                 <Title content="Wello from DogsList component :)" />
-                <Link to={`/game1`}><Button title="Play game 1" onclick={this.clicked} /></Link>
-                <Link to={`/game2`}><Button title="Play game 2" onclick={this.clicked} /></Link>
-                <Link to={`/game3`}><Button title="Play game 3" onclick={this.clicked}/></Link>
+                <Link to={`/game1`}><Button title="Play game 1" /></Link>
+                <Link to={`/game2`}><Button title="Play game 2" /></Link>
+                <Link to={this.state.urls[this.randomNumber()]}><Button title="Play game 3" /></Link>
                 <DogsList dogBreeds={this.props.dogBreeds} />
             </div>
         )
