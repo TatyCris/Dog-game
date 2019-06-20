@@ -4,8 +4,8 @@ import propTypes from 'prop-types'
 
 export default class Image extends Component {
     static propTypes = {
-        url: propTypes.string.isRequired,
-        alt: propTypes.string.isRequired,
+        url: propTypes.string,
+        alt: propTypes.string,
         className: propTypes.string,
         onClick: propTypes.func
     }

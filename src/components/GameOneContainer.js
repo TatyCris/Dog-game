@@ -6,6 +6,7 @@ import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert";
 
 
+
 class Game1Container extends Component {
     state = { answers: [] }
 

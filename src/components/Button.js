@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 
 export default class Button extends Component {
   static propTypes = {
-    title: propTypes.string.isRequired,
-    onclick: propTypes.func.isRequired,
+    title: propTypes.string,
+    onclick: propTypes.func,
   }
 
   render() {
