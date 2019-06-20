@@ -11,7 +11,7 @@ export function setImage(image) {
 
 export function getRandomImages() {
     return function (dispatch) {
-        request('https://dog.ceo/api/breeds/image/random/2')
+        request('https://dog.ceo/api/breeds/image/random')
             .then(response => {
                 dispatch(setImage(response.body.message))
             })

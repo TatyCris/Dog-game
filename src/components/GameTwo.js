@@ -6,27 +6,19 @@ import Title from './Title'
 // import Button from './Button'
 
 export default function GameTwo(props) {
-  const images = props.answers[0]
 
+  const images = props.answers
   
   return (
     <div>
-      {console.log('props', props.answers)}
-      {console.log('answers', props.answers[0])}
+
+      {/* {console.log('props', props.answers)} */}
       
       <Title content="Welcome to game Two" />
-      <h3>{props.title}</h3>
       <div>
-        { images && images.map((url, index) => <Image breed={ url } alt="Dog" key={index}/>) }
         { !images && 'Loading...' } 
+        { images && <Image breed={[images[0], images[1], images[2]]} num={1} />}
       </div>
-      <Image breed={'akita'} num={1} />
-      {/* <Image url={props.image} alt="randomDogBreed" onclick=''></Image>
-        <Image url={props.image} alt="randomDogBreed" onclick=''></Image> */}
-
-
-
-
 
       <Score />
     </div>

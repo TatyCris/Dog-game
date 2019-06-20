@@ -3,27 +3,15 @@ import GameTwo from './GameTwo';
 import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
-import swal from "sweetalert";
+import { getAnswers } from '../actions/game2'
+import { getRandomBreed } from '../actions/randomBreed'
+import swal from "sweetalert"
 
 
 class Game2Container extends Component {
-    state = { answers: [], images: [] }
-
     componentDidMount() {
         this.props.getBreeds()
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.dogBreeds !== this.props.dogBreeds) {
-            this.setAnswers()
-        }
-   
-    }
-
-    setAnswers() {
-        this.setState({
-            answers: this.getAnswers()
-        })
+        // this.props.getRandomBreed()
     }
 
     chooseRamdomBreed = () => {
@@ -70,32 +58,18 @@ class Game2Container extends Component {
                 icon: "success"
             })
         }
-
     }
 
-    // getMyArray = () => {
-    //     this.state.answers.map(b => {
-    //         const oneIMAGE = this.props.getImages(b, 1)
-    //         // console.log(oneIMAGE, b, 'oneIMAGE')
-    //         return oneIMAGE
-    //     })
-    // }
-
     render() {
-        // const hasImage = this.props.dogImage.length;
-        // if (!hasImage && this.state.answers.length) {
-        //     console.log('ANSWERS ',this.state.answers)
-        //     this.state.answers.map(breed => {
-        //         const img = this.props.getImages(breed, 1)
-                
-        //     })
-        // }
+        if (this.props.dogBreeds.length && !this.props.answers.length) {
+            this.props.getAnswers(this.getAnswers())
+        }
+
 
         return (
             <div>
-                {/* {console.log(this.props.dogImage, 'image')} */}
                 <GameTwo
-                    answers={this.state.answers}
+                    answers={this.props.answers}
                     image={this.props.dogImage}
                     checkAnswer={this.checkAnswer}
                     score={this.props.score}
@@ -111,7 +85,7 @@ class Game2Container extends Component {
 const mapStatetoProps = (state) => {
 
     return {
-
+        answers: state.game2.answers,
         dogBreeds: state.dogs.breeds,
         dogImage: state.dogs.images,
         score: state.game1.score,
@@ -120,4 +94,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getImages, getBreeds })(Game2Container)
+export default connect(mapStatetoProps, { getImages, getBreeds, getAnswers, getRandomBreed })(Game2Container)

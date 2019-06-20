@@ -5,8 +5,6 @@ import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert";
 
-
-
 class Game1Container extends Component {
     state = { answers: [] }
 
@@ -78,7 +76,7 @@ class Game1Container extends Component {
         const hasImage = this.props.dogImage.length;
 
         if (hasBreeds && hasImage === 0) {
-            this.props.getImages(this.state.answers[2], 1)
+            // this.props.getImages(this.state.answers[2], 1)
         }
 
         return (
