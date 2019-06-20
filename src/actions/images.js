@@ -9,29 +9,16 @@ export function setImages(images) {
     }
 }
 
-export function getImages(breed, num) {
-    return function (dispatch) {
-        request(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/${encodeURIComponent(num)}`)
+export function getImages(breeds, num) {
+    const promises = breeds.map(breed => request.get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/${encodeURIComponent(num)}`))
+    return dispatch => {
+        Promise.all(promises)
             .then(response => {
-                dispatch(setImages(response.body.message))
+                dispatch(setImages(response.map(response => {
+                    console.log('response', response.body.message[0]);
+                    return response.body.message[0]
+                } )))
             })
             .catch(console.error)
     }
 }
-
-// export function setRandomImage(images) {
-//     return {
-//         type: SET_RANDOM_IMAGE,
-//         payload: images
-//     }
-// }
-
-// export function getRandomImage() {
-//     return function (dispatch) {
-//         request('https://dog.ceo/api/breeds/image/random')
-//             .then(response => {
-//                 dispatch(setRandomImages(response.body.message))
-//             })
-//             .catch(console.error)
-//     }
-// } 

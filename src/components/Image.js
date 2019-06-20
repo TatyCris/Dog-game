@@ -12,13 +12,15 @@ class Image extends Component {
     }
 
     render() {
-        // console.log('breed', this.props.breed);
-        // console.log('num', this.props.num);
+        console.log('breedpassing inside getImages', this.props.breed);
+        console.log('num', this.props.num);
         
 
         return (
             <div>
-                <img src={this.props.url}></img>
+                {console.log('taty', this.props.images)}
+                {this.props.images.map( image => <img src={image}></img>)}
+                {/* <img src={this.props.images}></img> */}
                 {/* <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} /> */}
             </div>
         )
@@ -27,7 +29,7 @@ class Image extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        url: state.dogs.images,
+        images: state.dogs.images,
     }
 }
 

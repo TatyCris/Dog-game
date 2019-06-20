@@ -4,12 +4,14 @@ import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
 import { getAnswers } from '../actions/game2'
-import swal from "sweetalert";
+import { getRandomBreed } from '../actions/randomBreed'
+import swal from "sweetalert"
 
 
 class Game2Container extends Component {
     componentDidMount() {
         this.props.getBreeds()
+        // this.props.getRandomBreed()
     }
 
     chooseRamdomBreed = () => {
@@ -59,7 +61,7 @@ class Game2Container extends Component {
     }
 
     render() {
-        if (this.props.dogBreeds.length && !this.props.answers.length ) {
+        if (this.props.dogBreeds.length && !this.props.answers.length) {
             this.props.getAnswers(this.getAnswers())
         }
 
@@ -92,4 +94,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getImages, getBreeds, getAnswers })(Game2Container)
+export default connect(mapStatetoProps, { getImages, getBreeds, getAnswers, getRandomBreed })(Game2Container)
