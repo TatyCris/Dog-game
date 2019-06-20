@@ -24,7 +24,6 @@ class DogsListContainer extends Component {
 
 
     render() {
-        console.log('RANDOM GAME !!!', this.radnomGame())
         return (
             <div>
                 <Title content="Wello from DogsList component :)" />
