@@ -14,18 +14,13 @@ function setRandomBreed (payload) {
     }
 }
 
-function getRandomImage (breed) {
-    const component = encodeURIComponent(breed)
-    const url = `https://dog.ceo/api/breed/${component}/images/random`
-    
+function getRandomImage (breed) { 
+    const url = `https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random`
     return request(url)
-        .then(response => {
-            const { message } = response.body
-            
-            return {
-                image: message,
-                breed
-            }
+        .then(response => {
+            const message = response.body.message
+            console.log(message)
+                return message
         })
 }
 
@@ -34,11 +29,14 @@ export function getRandomBreed() {
         request('https://dog.ceo/api/breeds/list/all')
             .then(response => {
                 const { message } = response.body
-                const breeds = Object.keys(message)
-                const breed = chooseRandomBreed(breeds)
-
-                const promise = getRandomImage(breed)
-                return promise
+                //const breeds = Object.keys(message)
+                //const breed = chooseRandomBreed(breeds)
+                //const promise = getRandomImage(breed)
+                const breeds = ['akita', 'maltese', 'akita']
+                const promise = message.map(breed=>getRandomImage(breed))
+                const myData = [promise, breeds]
+                console.log(myData, 'myData')
+                return myData
             })
             .then(data => {
                 const action = setRandomBreed(data)

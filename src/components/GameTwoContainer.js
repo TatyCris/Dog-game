@@ -4,13 +4,17 @@ import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert";
+import { getRandomBreed } from '../actions/randomBreed'
+
 
 
 class Game2Container extends Component {
     state = { answers: [], images: [] }
 
     componentDidMount() {
+        this.props.getRandomBreed()
         this.props.getBreeds()
+        
     }
 
     componentDidUpdate(prevProps) {
@@ -109,7 +113,7 @@ class Game2Container extends Component {
 }
 
 const mapStatetoProps = (state) => {
-
+console.log(state.answer,'STATE')
     return {
 
         dogBreeds: state.dogs.breeds,
@@ -120,4 +124,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getImages, getBreeds })(Game2Container)
+export default connect(mapStatetoProps, { getImages, getBreeds, getRandomBreed })(Game2Container)
