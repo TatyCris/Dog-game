@@ -7,7 +7,7 @@ import swal from "sweetalert";
 
 
 class Game2Container extends Component {
-    state = { answers: [] }
+    state = { answers: [], images: [] }
 
     componentDidMount() {
         this.props.getBreeds()
@@ -57,11 +57,11 @@ class Game2Container extends Component {
     }
 
     checkAnswer = (event) => {
-        console.log('event', event.target.title)
-        console.log('state', this.state.answers[2])
+        // console.log('event', event.target.title)
+        // console.log('state', this.state.answers[2])
 
 
-        console.log(event.target);
+        // console.log(event.target);
         if (event.target.value === this.state.answers[2]) {
 
             swal({
@@ -72,27 +72,28 @@ class Game2Container extends Component {
         }
 
     }
+
     getMyArray = () => {
         this.state.answers.map(b => {
             const oneIMAGE = this.props.getImages(b, 1)
-            console.log(oneIMAGE, b, 'oneIMAGE')
+            // console.log(oneIMAGE, b, 'oneIMAGE')
             return oneIMAGE
         })
     }
+
     render() {
-        // const hasBreeds = this.props.dogBreeds.length;
         const hasImage = this.props.dogImage.length;
-        // console.log(this.state.answers)
         if (!hasImage && this.state.answers.length) {
             console.log('ANSWERS ',this.state.answers)
             this.state.answers.map(breed => {
-                return this.props.getImages(breed, 1)
+                const img = this.props.getImages(breed, 1)
+                
             })
         }
 
         return (
             <div>
-                {console.log(this.props.dogImage, 'image')}
+                {/* {console.log(this.props.dogImage, 'image')} */}
                 <GameTwo
                     answers={this.mixAnswers()}
                     image={this.props.dogImage}

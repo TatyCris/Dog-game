@@ -7,7 +7,7 @@ export default function GameTwo (props) {
 
     return (
       <div>
-        {console.log(props, 'PROPS')}
+        {/* {console.log(props, 'PROPS')} */}
         <Title content="Welcome to game Two" />
         <h3>{props.title}</h3>
         {/* {dataDisplay(props.image)} */}
