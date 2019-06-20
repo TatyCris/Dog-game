@@ -6,27 +6,19 @@ import Title from './Title'
 // import Button from './Button'
 
 export default function GameTwo(props) {
-  //const images = props.answers
 
+  const images = props.answers
   
   return (
     <div>
-     
+
+      {/* {console.log('props', props.answers)} */}
       
       <Title content="Welcome to game Two" />
-      <h3>{props.title}</h3>
       <div>
-       
-        <Image breed={ props.answers } num={1}/>
-        
+        { !images && 'Loading...' } 
+        { images && <Image breed={[images[0], images[1], images[2]]} />}
       </div>
-     
-      {/* <Image url={props.image} alt="randomDogBreed" onclick=''></Image>
-        <Image url={props.image} alt="randomDogBreed" onclick=''></Image> */}
-
-
-
-
 
       <Score />
     </div>

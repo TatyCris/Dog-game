@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 import './Image.css';
-// import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 
 class Image extends Component {
-
+    
     componentDidMount() {
         const breed = this.props.breed
         const num = this.props.num
-        this.props.getImages(breed[0], num)
-
-        // static propTypes = {
-        //     url: propTypes.string.isRequired,
-        //     alt: propTypes.string.isRequired,
-        //     className: propTypes.string,
-        //     onClick: propTypes.func
-
+        this.props.getImages(breed, num)
     }
 
     render() {
-        //console.log('breed', this.props.breed);
-        //console.log('num', this.props.num);
-
+        console.log('breedpassing inside getImages', this.props.breed);
+        console.log('num', this.props.num);
+        
 
         return (
             <div>
-                {console.log(this.props.breed, this.props.url, 'from images')}
-                {this.props.breed}
-                {/* <img src={this.props.url}></img> */}
+                 { !this.props.images && 'Loading...' } 
+        { this.props.images && this.props.images.map( image => <img src={image}></img>)}
+                {console.log('taty', this.props.images)}
+                {this.props.images.map( image => <img src={image}></img>)}
+                {/* <img src={this.props.images}></img> */}
                 {/* <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} /> */}
             </div>
         )
@@ -37,10 +31,8 @@ class Image extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        url: state.dogs.images,
+        images: state.dogs.images,
     }
 }
 
 export default connect(mapStatetoProps, { getImages })(Image)
-// { images && images.map((url) => <Image breed={ props.answers } num={1}/>) }
-//         { !images && 'Loading...' } 
