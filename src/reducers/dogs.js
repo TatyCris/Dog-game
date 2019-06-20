@@ -16,7 +16,7 @@ export default (state = initialState, action = {}) => {
     case SET_IMAGES:
       return {
         ...state,
-        images: action.payload
+        images: [...action.payload]
       };
     default:
       return state

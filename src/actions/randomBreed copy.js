@@ -3,8 +3,7 @@ import * as request from 'superagent'
 export const RANDOM_BREED = 'RANDOM_BREED'
 
 function chooseRandomBreed(breeds) {
-    const myBreed = breeds[Math.floor(Math.random() * breeds.length)]
-    return myBreed
+    return breeds[Math.floor(Math.random() * breeds.length)]
 }
 
 function setRandomBreed (payload) {
