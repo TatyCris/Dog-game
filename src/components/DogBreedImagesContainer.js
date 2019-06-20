@@ -7,20 +7,25 @@ class DogBreedImagesContainer extends Component {
 
   componentDidMount() {
     const breed = this.props.match.params.breed
-    this.props.getImages(breed, 10)
+    this.props.getImages([breed], 10)
   }
 
 
   render() {
-    return <DogBreedImages 
-    images={this.props.dogBreeds} title={this.props.match.params.breed} />
+    const breed = this.props.match.params.breed
+    return (
+      <div>
+        <DogBreedImages
+          images={this.props.dogBreeds} title={breed} breed={breed} />
+      </div>
+    )
   }
 }
 
 const mapStatetoProps = (state) => {
   return {
-      dogBreeds: state.dogs.images
+    dogBreeds: state.dogs.images,
   }
 }
 
-export default connect (mapStatetoProps, { getImages })(DogBreedImagesContainer)
+export default connect(mapStatetoProps, { getImages })(DogBreedImagesContainer)

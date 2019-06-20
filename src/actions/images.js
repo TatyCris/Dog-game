@@ -15,8 +15,8 @@ export function getImages(breeds, num) {
         Promise.all(promises)
             .then(response => {
                 dispatch(setImages(response.map(response => {
-                    console.log('response', response.body.message[0]);
-                    return response.body.message[0]
+                    // console.log('response', response.body.message);
+                    return response.body.message
                 } )))
             })
             .catch(console.error)

@@ -4,25 +4,24 @@ import { connect } from 'react-redux'
 import { getImages } from '../actions/images'
 
 class Image extends Component {
-    
+
     componentDidMount() {
         const breed = this.props.breed
         const num = this.props.num
         this.props.getImages(breed, num)
     }
 
-    render() {
-        console.log('breedpassing inside getImages', this.props.breed);
-        console.log('num', this.props.num);
-        
+    getImageUrl() {
+        return this.props.images && this.props.images.map(
+            breadSearched => breadSearched.map(
+                image => <img src={image} alt='dog' />))
+    }
 
+    render() {
         return (
             <div>
-                <p></p>
                 {!this.props.images && 'loading...'}
-                {this.props.images && this.props.images.map( image => <img src={image} alt='dog'/>)}
-                {/* <img src={this.props.images}></img> */}
-                {/* <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} /> */}
+                {this.getImageUrl()}
             </div>
         )
     }
