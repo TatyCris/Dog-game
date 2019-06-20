@@ -41,12 +41,13 @@ class Game1Container extends Component {
         return this.state.answers.sort(() => Math.random() - 0.5);
     }
 
+    nextQuestion = () => {
+        this.props.getAnswers(this.getAnswers())
+    }
+
     checkAnswer = (event) => {
-        console.log('this.props.answers', this.props.answers[2])
-        console.log('event', event.target.value)
-        
-        
         if (event.target.value === this.props.answers[2]) {
+            this.nextQuestion()
             return swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
@@ -75,7 +76,7 @@ class Game1Container extends Component {
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-                    goHome={this.goHome}
+                    // goHome={this.goHome}
                 />
             </div>
         )

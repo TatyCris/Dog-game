@@ -22,7 +22,6 @@ class DogsListContainer extends Component {
         return Math.floor(Math.random() * 2)
     }
 
-
     render() {
         return (
             <div>
