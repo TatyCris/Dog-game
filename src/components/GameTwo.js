@@ -15,6 +15,7 @@ export default function GameTwo(props) {
       {/* {console.log('props', props.answers)} */}
       
       <Title content="Welcome to game Two" />
+      <h3>{props.title}</h3>
       <div>
         { !images && 'Loading...' } 
         { images && <Image breed={[images[0], images[1], images[2]]} />}
