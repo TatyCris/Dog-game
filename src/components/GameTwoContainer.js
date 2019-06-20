@@ -1,17 +1,27 @@
 import React, { Component } from 'react'
 import GameTwo from './GameTwo';
 import { connect } from 'react-redux'
-import { getImages } from '../actions/images'
-import { getBreeds } from '../actions/breeds'
-import { getAnswers } from '../actions/game2'
+import swal from "sweetalert";
 import { getRandomBreed } from '../actions/randomBreed'
-import swal from "sweetalert"
-
 
 class Game2Container extends Component {
+    state = { answers: [], breeds: [] }
+
     componentDidMount() {
-        this.props.getBreeds()
-        // this.props.getRandomBreed()
+        this.props.getRandomBreed()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.dogBreeds !== this.props.dogBreeds) {
+            this.setAnswers()
+        }
+    }
+
+    setAnswers() {
+        this.setState({
+            answers: this.getAnswers(),
+            breeds: this.props.dogBreeds[2]
+        })
     }
 
     chooseRamdomBreed = () => {
@@ -19,24 +29,11 @@ class Game2Container extends Component {
     }
 
     getAnswers = () => {
-        if (this.props.dogBreeds.length < 2) {
-            return [];
-        }
 
-        const randomAnswer1 = this.chooseRamdomBreed(this.props.dogBreeds)
-        let randomAnswer2 = this.chooseRamdomBreed(this.props.dogBreeds)
-        let correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
-
-        while (randomAnswer1 === randomAnswer2) {
-            randomAnswer2 = this.chooseRamdomBreed(this.props.dogBreeds)
-        }
-        while (randomAnswer2 === correctAnswer) {
-            correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
-        }
-        while (randomAnswer1 === correctAnswer) {
-            correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
-        }
-
+        const randomAnswer1 = this.props.dogImage[0]
+        const randomAnswer2 = this.props.dogImage[1]
+        const correctAnswer = this.props.dogImage[2]
+       
         return [randomAnswer1, randomAnswer2, correctAnswer]
     }
 
@@ -45,36 +42,35 @@ class Game2Container extends Component {
     }
 
     checkAnswer = (event) => {
-        // console.log('event', event.target.title)
-        // console.log('state', this.state.answers[2])
-
-
-        // console.log(event.target);
-        if (event.target.value === this.state.answers[2]) {
-
-            swal({
+        if (event.target.src === this.state.answers[2]) {
+            
+           return swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
         }
+        return swal({
+            text: "Wrong!",
+            buttons: "NEXT QUESTION",
+            icon: "error"
+        })
+
     }
 
+
     render() {
-        if (this.props.dogBreeds.length && !this.props.answers.length) {
-            this.props.getAnswers(this.getAnswers())
-        }
-
-
         return (
+            
             <div>
                 <GameTwo
-                    answers={this.props.answers}
-                    image={this.props.dogImage}
+                    answers={this.state.answers}
+                    image={this.mixAnswers}
                     checkAnswer={this.checkAnswer}
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
+                    title= {this.state.breeds}
                     mixAnswers={this.mixAnswers}
                 />
             </div>
@@ -83,15 +79,13 @@ class Game2Container extends Component {
 }
 
 const mapStatetoProps = (state) => {
-
     return {
-        answers: state.game2.answers,
-        dogBreeds: state.dogs.breeds,
-        dogImage: state.dogs.images,
+        dogBreeds: state.randomBreeds.breeds,
+        dogImage: state.randomBreeds.images,
         score: state.game1.score,
         total: state.game1.total,
         lives: state.game1.lives
     }
 }
 
-export default connect(mapStatetoProps, { getImages, getBreeds, getAnswers, getRandomBreed })(Game2Container)
+export default connect(mapStatetoProps, { getRandomBreed })(Game2Container)

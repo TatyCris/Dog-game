@@ -1,9 +1,8 @@
 import React from 'react'
-import Image from './Image'
+
 import Score from './Score'
 import Title from './Title'
-// import { Link } from 'react-router-dom'
-// import Button from './Button'
+
 
 export default function GameTwo(props) {
 
@@ -12,12 +11,12 @@ export default function GameTwo(props) {
   return (
     <div>
 
-      {/* {console.log('props', props.answers)} */}
       
       <Title content="Welcome to game Two" />
-      <div>
+      <h3>{props.title}</h3>
+      <div className='gameImages'>
         { !images && 'Loading...' } 
-        { images && <Image breed={[images[0], images[1], images[2]]} num={1} />}
+        { images && <div> <img src={images[0]} onClick={props.checkAnswer}/><img src={images[1]} onClick={props.checkAnswer} /><img src={images[2]}  onClick={props.checkAnswer}/></div>}
       </div>
 
       <Score />

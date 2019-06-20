@@ -18,8 +18,9 @@ class Image extends Component {
 
         return (
             <div>
-                {console.log('taty', this.props.images)}
-                {this.props.images.map( image => <img src={image}></img>)}
+                <p></p>
+                {!this.props.images && 'loading...'}
+                {this.props.images && this.props.images.map( image => <img src={image} alt='dog'/>)}
                 {/* <img src={this.props.images}></img> */}
                 {/* <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} /> */}
             </div>

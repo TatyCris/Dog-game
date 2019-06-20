@@ -1,4 +1,3 @@
-
 import { RANDOM_BREED } from '../actions/randomBreed'
 
 const initialState = {}
