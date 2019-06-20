@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import './Button.css'
 
 export default class Button extends Component {
   static propTypes = {
@@ -8,10 +9,16 @@ export default class Button extends Component {
   }
 
   render() {
-    // console.log('hi', this.props);
-    
     return (
-      <button value={this.props.title} onClick={this.props.checkAnswer} onclick={this.props.onclick}>{this.props.title} </button>
+      <button
+        className="button"
+        value={this.props.title}
+        onClick={this.props.checkAnswer}
+        // onclick={this.props.onclick}
+      >
+        {this.props.title}
+        {this.props.children}
+      </button>
     )
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './DogsList.css'
 
 export default class DogsList extends Component {
     renderDogBreed(breed) {
@@ -14,7 +15,7 @@ export default class DogsList extends Component {
         const { dogBreeds } = this.props
         return (
             <div className="dogs-list">
-                <h1>Dogs List</h1>
+                <h2>Get to know the breeds</h2>
                 {!dogBreeds && 'Loading...'}
                 {dogBreeds && <ul>{dogBreeds.map(this.renderDogBreed)}</ul>}
             </div>

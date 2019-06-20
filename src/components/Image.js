@@ -14,7 +14,7 @@ class Image extends Component {
     getImageUrl() {
         return this.props.images && this.props.images.map(
             breadSearched => breadSearched.map(
-                image => <img src={image} alt='dog' />))
+                image => <img className="image" src={image} alt='dog' />))
     }
 
     render() {

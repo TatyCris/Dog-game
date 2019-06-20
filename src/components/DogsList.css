@@ -1,0 +1,13 @@
+.dogs-list {
+    margin-bottom: 80px;
+}
+
+.dogs-list ul li{
+    list-style-type: none;
+    margin: 3px;
+}
+
+.dogs-list a {
+    text-decoration: none;
+    color: white;
+}

@@ -26,7 +26,7 @@ class DogsListContainer extends Component {
     render() {
         return (
             <div>
-                <Title content="Wello from DogsList component :)" />
+                <Title content="Do you know about breeds?" />
                 <Link to={`/game1`}><Button title="Play game 1" /></Link>
                 <Link to={`/game2`}><Button title="Play game 2" /></Link>
                 <Link to={this.state.urls[this.randomNumber()]}><Button title="Play game 3" /></Link>

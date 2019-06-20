@@ -1,7 +1,6 @@
-.imageComponent {
-    margin: 10px auto;
-}
-
 .image {
-    max-width: 80%;
+    height: 350px;
+    max-width: 350px;
+    margin: 7px;
+    border: 1px solid white;
 }
