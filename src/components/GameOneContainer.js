@@ -6,6 +6,7 @@ import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert";
 
 
+
 class Game1Container extends Component {
     state = { answers: [] }
 
@@ -89,7 +90,7 @@ class Game1Container extends Component {
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-
+                    goHome={this.goHome}
                 />
             </div>
         )
