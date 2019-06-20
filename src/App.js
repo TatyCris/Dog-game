@@ -5,7 +5,7 @@ import DogBreedImagesContainer from './components/DogBreedImagesContainer';
 import { Route } from 'react-router-dom'
 import Game1Container from './components/GameOneContainer'
 import GameTwoContainer from './components/GameTwoContainer'
-import Image from './components/Image'
+// import Image from './components/Image'
 
 
 
@@ -14,7 +14,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Image breed={'akita'} num={1}/>
+          {/* <Image breed={'akita'} num={1}/> */}
           {/* <DogsListContainer /> */}
           <Route exact path="/" component={DogsListContainer} />
           <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />

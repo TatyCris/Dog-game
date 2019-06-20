@@ -73,34 +73,35 @@ class Game2Container extends Component {
 
     }
 
-    getMyArray = () => {
-        this.state.answers.map(b => {
-            const oneIMAGE = this.props.getImages(b, 1)
-            // console.log(oneIMAGE, b, 'oneIMAGE')
-            return oneIMAGE
-        })
-    }
+    // getMyArray = () => {
+    //     this.state.answers.map(b => {
+    //         const oneIMAGE = this.props.getImages(b, 1)
+    //         // console.log(oneIMAGE, b, 'oneIMAGE')
+    //         return oneIMAGE
+    //     })
+    // }
 
     render() {
-        const hasImage = this.props.dogImage.length;
-        if (!hasImage && this.state.answers.length) {
-            console.log('ANSWERS ',this.state.answers)
-            this.state.answers.map(breed => {
-                const img = this.props.getImages(breed, 1)
+        // const hasImage = this.props.dogImage.length;
+        // if (!hasImage && this.state.answers.length) {
+        //     console.log('ANSWERS ',this.state.answers)
+        //     this.state.answers.map(breed => {
+        //         const img = this.props.getImages(breed, 1)
                 
-            })
-        }
+        //     })
+        // }
 
         return (
             <div>
                 {/* {console.log(this.props.dogImage, 'image')} */}
                 <GameTwo
-                    answers={this.mixAnswers()}
+                    answers={this.state.answers}
                     image={this.props.dogImage}
                     checkAnswer={this.checkAnswer}
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
+                    mixAnswers={this.mixAnswers}
                 />
             </div>
         )

@@ -26,7 +26,7 @@ class Image extends Component {
 
         return (
             <div>
-                <img src={this.props.dogImage}></img>
+                <img src={this.props.url}></img>
                 {/* <img src={this.props.url} alt={this.props.alt} className={this.props.className} onClick={this.props.onClick} /> */}
             </div>
         )
@@ -35,7 +35,7 @@ class Image extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        dogImage: state.dogs.images,
+        url: state.dogs.images,
     }
 }
 
