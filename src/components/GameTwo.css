@@ -1,0 +1,8 @@
+.images img {
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 7px;
+    height: 300px;
+    max-width: 300px;
+    border: 1px solid white;
+}

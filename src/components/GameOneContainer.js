@@ -43,20 +43,23 @@ class Game1Container extends Component {
     }
 
     checkAnswer = (event) => {
-        console.log('event', event.target.title)
-        console.log('state', this.state.answers[2])
-
-
-        console.log(event.target);
-        if (event.target.value === this.state.answers[2]) {
-
-            swal({
+        console.log('this.props.answers', this.props.answers[2])
+        console.log('event', event.target.value)
+        
+        
+        if (event.target.value === this.props.answers[2]) {
+            return swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
         }
 
+        return swal({
+            text: "Wrong!",
+            buttons: "NEXT QUESTION",
+            icon: "error"
+        })
     }
 
     render() {

@@ -55,13 +55,12 @@ class Game2Container extends Component {
             buttons: "NEXT QUESTION",
             icon: "error"
         })
-
     }
 
-
     render() {
+        console.log('this.state.breeds', this.state.breeds);
+        
         return (
-            
             <div>
                 <GameTwo
                     answers={this.state.answers}
