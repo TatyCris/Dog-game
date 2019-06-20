@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import GameTwo from './GameTwo';
 import { connect } from 'react-redux'
-import { getImages } from '../actions/images'
-import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert";
 import { getRandomBreed } from '../actions/randomBreed'
 
-
-
 class Game2Container extends Component {
-    state = { answers: [], images: [] }
+    state = { answers: [], breeds: [] }
 
     componentDidMount() {
         this.props.getRandomBreed()
-        this.props.getBreeds()
+       
         
     }
 
@@ -21,12 +17,12 @@ class Game2Container extends Component {
         if (prevProps.dogBreeds !== this.props.dogBreeds) {
             this.setAnswers()
         }
-   
     }
 
     setAnswers() {
         this.setState({
-            answers: this.getAnswers()
+            answers: this.getAnswers(),
+            breeds: this.props.dogBreeds[2]
         })
     }
 
@@ -35,24 +31,11 @@ class Game2Container extends Component {
     }
 
     getAnswers = () => {
-        if (this.props.dogBreeds.length < 2) {
-            return [];
-        }
 
-        const randomAnswer1 = this.chooseRamdomBreed(this.props.dogBreeds)
-        let randomAnswer2 = this.chooseRamdomBreed(this.props.dogBreeds)
-        let correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
-
-        while (randomAnswer1 === randomAnswer2) {
-            randomAnswer2 = this.chooseRamdomBreed(this.props.dogBreeds)
-        }
-        while (randomAnswer2 === correctAnswer) {
-            correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
-        }
-        while (randomAnswer1 === correctAnswer) {
-            correctAnswer = this.chooseRamdomBreed(this.props.dogBreeds)
-        }
-
+        const randomAnswer1 = this.props.dogImage[0]
+        const randomAnswer2 = this.props.dogImage[1]
+        const correctAnswer = this.props.dogImage[2]
+       
         return [randomAnswer1, randomAnswer2, correctAnswer]
     }
 
@@ -67,7 +50,6 @@ class Game2Container extends Component {
 
         // console.log(event.target);
         if (event.target.value === this.state.answers[2]) {
-
             swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
@@ -77,27 +59,13 @@ class Game2Container extends Component {
 
     }
 
-    // getMyArray = () => {
-    //     this.state.answers.map(b => {
-    //         const oneIMAGE = this.props.getImages(b, 1)
-    //         // console.log(oneIMAGE, b, 'oneIMAGE')
-    //         return oneIMAGE
-    //     })
-    // }
 
     render() {
-        // const hasImage = this.props.dogImage.length;
-        // if (!hasImage && this.state.answers.length) {
-        //     console.log('ANSWERS ',this.state.answers)
-        //     this.state.answers.map(breed => {
-        //         const img = this.props.getImages(breed, 1)
-                
-        //     })
-        // }
+       
 
         return (
+            
             <div>
-                {/* {console.log(this.props.dogImage, 'image')} */}
                 <GameTwo
                     answers={this.state.answers}
                     image={this.props.dogImage}
@@ -105,6 +73,7 @@ class Game2Container extends Component {
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
+                    title= {this.state.breeds}
                     mixAnswers={this.mixAnswers}
                 />
             </div>
@@ -113,15 +82,15 @@ class Game2Container extends Component {
 }
 
 const mapStatetoProps = (state) => {
-console.log(state.answer,'STATE')
+
     return {
 
-        dogBreeds: state.dogs.breeds,
-        dogImage: state.dogs.images,
+        dogBreeds: state.randomBreeds.breeds,
+        dogImage: state.randomBreeds.images,
         score: state.game1.score,
         total: state.game1.total,
         lives: state.game1.lives
     }
 }
 
-export default connect(mapStatetoProps, { getImages, getBreeds, getRandomBreed })(Game2Container)
+export default connect(mapStatetoProps, { getRandomBreed })(Game2Container)

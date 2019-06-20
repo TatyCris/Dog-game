@@ -1,7 +1,7 @@
 
 import { RANDOM_BREED } from '../actions/randomBreed'
 
-const initialState = []
+const initialState = {}
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
