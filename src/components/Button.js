@@ -14,7 +14,6 @@ export default class Button extends Component {
         className="button"
         value={this.props.title}
         onClick={this.props.checkAnswer}
-        // onclick={this.props.onclick}
       >
         {this.props.title}
         {this.props.children}

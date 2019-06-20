@@ -5,6 +5,7 @@ import DogBreedImagesContainer from './components/DogBreedImagesContainer';
 import { Route } from 'react-router-dom'
 import GameOneContainer from './components/GameOneContainer'
 import GameTwoContainer from './components/GameTwoContainer'
+import GameThreeContainer from './components/GameThreeContainer'
 
 export default class App extends Component {
   render() {
@@ -15,8 +16,7 @@ export default class App extends Component {
           <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
           <Route exact path="/game1" component={GameOneContainer} />
           <Route exact path="/game2" component={GameTwoContainer} />
-          {/* <Route exact path="/game2" component={Game2Container} />
-          <Route exact path="/game3" component={Game3Container} /> */}
+          <Route exact path="/game3" component={GameThreeContainer} />
         </header>
       </div>
     )

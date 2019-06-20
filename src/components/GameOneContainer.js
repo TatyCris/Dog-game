@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import GameOne from './GameOne';
 import { connect } from 'react-redux'
-import { getImages } from '../actions/images'
 import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert"
 import { getAnswers } from '../actions/game1'
@@ -94,4 +93,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getImages, getBreeds, getAnswers })(Game1Container)
+export default connect(mapStatetoProps, { getBreeds, getAnswers })(Game1Container)

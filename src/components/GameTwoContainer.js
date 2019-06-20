@@ -29,7 +29,6 @@ class Game2Container extends Component {
     }
 
     getAnswers = () => {
-
         const randomAnswer1 = this.props.dogImage[0]
         const randomAnswer2 = this.props.dogImage[1]
         const correctAnswer = this.props.dogImage[2]
@@ -43,13 +42,13 @@ class Game2Container extends Component {
 
     checkAnswer = (event) => {
         if (event.target.src === this.state.answers[2]) {
-            
            return swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
         }
+        
         return swal({
             text: "Wrong!",
             buttons: "NEXT QUESTION",
@@ -57,9 +56,7 @@ class Game2Container extends Component {
         })
     }
 
-    render() {
-        console.log('this.state.breeds', this.state.breeds);
-        
+    render() {        
         return (
             <div>
                 <GameTwo
