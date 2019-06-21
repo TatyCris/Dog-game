@@ -53,14 +53,14 @@ class Game1Container extends Component {
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
-            }).then(function(){
-                window.location.href ="/game1"   
+            }).then(function () {
+                window.location.href = "/game1"
             });
         }
 
         return swal({
             text: "Wrong!",
-            buttons: "NEXT QUESTION",
+            buttons: "TRY AGAIN",
             icon: "error"
         })
     }
@@ -76,11 +76,11 @@ class Game1Container extends Component {
                     answers={this.props.answers}
                     image={this.props.dogImage}
                     checkAnswer={this.checkAnswer}
-                    mixAnswers= {this.mixAnswers}
+                    mixAnswers={this.mixAnswers}
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-                    // goHome={this.goHome}
+                // goHome={this.goHome}
                 />
             </div>
         )
