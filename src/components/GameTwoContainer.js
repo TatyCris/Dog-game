@@ -44,21 +44,23 @@ class GameTwoContainer extends Component {
     checkAnswer = (event) => {
         if (event.target.src === this.state.answers[2]) {
             swal({
-                // console.log(event.target.src, this.state.answers[2])            
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
-            this.props.addPointToScore()
+                .then(() => { this.props.addPointToScore() })
+                .then(() => {
+                    this.render()
+                })
+                .then(() => {
+                    this.componentDidMount()
+                })
         } else {
             swal({
                 text: "Wrong!",
-                buttons: "NEXT QUESTION",
+                buttons: "TRY AGAIN",
                 icon: "error"
             })
-                .then(function () {
-                    window.location.href = "/game2"
-                })
         }
     }
 
