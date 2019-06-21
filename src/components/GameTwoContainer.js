@@ -49,9 +49,8 @@ class GameTwoContainer extends Component {
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
-                .then(() => { this.props.addPointToScore() })
                 .then(() => {
-                    this.render()
+                    this.props.addPointToScore()
                 })
                 .then(() => {
                     this.componentDidMount()

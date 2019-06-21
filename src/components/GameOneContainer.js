@@ -52,13 +52,8 @@ class Game1Container extends Component {
                 text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
-            }).then(function () {
-                window.location.href = "/game1"
             })
                 .then(() => { this.props.addPointToScore() })
-                .then(() => {
-                    this.render()
-                })
                 .then(() => {
                     this.componentDidMount()
                 })
