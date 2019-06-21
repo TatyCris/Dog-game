@@ -16,16 +16,30 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #282c34;
-  background-image: url('https://i.imgur.com/X4f1skS.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
+  color: #ecf0f1;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3498db+0,2980b9+100 */
+  background: #3498db;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #3498db 0%, #2980b9 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #3498db 0%, #2980b9 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #3498db 0%, #2980b9 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3498db', endColorstr='#2980b9', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.swal-icon img {
+  width: 90%;
+  max-width: 200px;
+  margin: 0 auto;
+  border: 2px solid red
 }
 
 @keyframes App-logo-spin {
