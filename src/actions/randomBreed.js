@@ -3,12 +3,12 @@ import * as request from 'superagent'
 export const RANDOM_BREED = 'RANDOM_BREED'
 
 function chooseRandomBreed(breeds) {
-    const myBreed = breeds[Math.floor(Math.random() * breeds.length)]
-    const mySecondBreed = breeds[Math.floor(Math.random() * breeds.length)]
-    const myThirdBreed = breeds[Math.floor(Math.random() * breeds.length)]
-    return [myBreed, mySecondBreed, myThirdBreed]
+    const n = [Math.floor(Math.random() * breeds.length)]
+    const myBreed = breeds[n]
+    const secondBreedArray = breeds.filter(secondBreed=> secondBreed !== myBreed)
+    const myThirdBreed = secondBreedArray.filter(thirdbreed=> thirdbreed !== secondBreedArray[n])
+    return [myBreed, secondBreedArray[n], myThirdBreed[n]]
 }
-
 
 function setRandomBreed (payload) {
     return {

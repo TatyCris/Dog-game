@@ -6,4 +6,18 @@
     border-radius: 7px;
     min-width: 140px;
     text-transform: capitalize;
+    background: #f1c40f;
+    -webkit-box-shadow: 0px 4px 0px 0px rgba(243, 156, 18,1.0);
+    -moz-box-shadow: 0px 4px 0px 0px rgba(243, 156, 18,1.0);
+    box-shadow: 0px 4px 0px 0px rgba(243, 156, 18,1.0);
+    border: none;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    color: #5A4500;
+    outline: none
+}
+.button:active{
+    transform: translateY(2px);
+    background: rgba(243, 156, 18,1.0);
 }

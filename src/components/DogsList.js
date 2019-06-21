@@ -14,7 +14,7 @@ export default class DogsList extends Component {
     render() {
         const { dogBreeds } = this.props
         return (
-            <div className="dogs-list">
+            <div className="dogs-list" >
                 <h2>Get to know the breeds</h2>
                 {!dogBreeds && 'Loading...'}
                 {dogBreeds && <ul>{dogBreeds.map(this.renderDogBreed)}</ul>}

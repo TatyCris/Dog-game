@@ -5,6 +5,7 @@ import { getBreeds } from '../actions/breeds'
 import Button from './Button'
 import Title from './Title'
 import { Link } from 'react-router-dom'
+import './DogsListContainer.css'
 
 class DogsListContainer extends Component {
     state = {
@@ -24,7 +25,7 @@ class DogsListContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="DogListContainer">
                 <Title content="Do you know about breeds?" />
                 <Link to={`/game1`}><Button title="Play game 1" /></Link>
                 <Link to={`/game2`}><Button title="Play game 2" /></Link>

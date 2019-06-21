@@ -59,7 +59,7 @@ class Game1Container extends Component {
                 })
         } else {
             swal({
-                text: "Wrong!",
+                text: `Wrong! Correct answer is ${this.props.answers[2]}`,
                 buttons: "TRY AGAIN",
                 icon: "error"
             })
