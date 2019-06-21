@@ -47,7 +47,7 @@ class Game1Container extends Component {
 
     checkAnswer = (event) => {
         if (event.target.value === this.props.answers[2]) {
-            // this.nextQuestion()
+
             swal({
                 text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
@@ -55,11 +55,17 @@ class Game1Container extends Component {
             }).then(function () {
                 window.location.href = "/game1"
             })
-            this.props.addPointToScore();
+                .then(() => { this.props.addPointToScore() })
+                .then(() => {
+                    this.render()
+                })
+                .then(() => {
+                    this.componentDidMount()
+                })
         } else {
             swal({
-                text: "BAD BOY!",
-                buttons: "NEXT QUESTION",
+                text: "Wrong!",
+                buttons: "TRY AGAIN",
                 icon: "error"
             })
         }
@@ -80,7 +86,6 @@ class Game1Container extends Component {
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-                // goHome={this.goHome}
                 />
             </div>
         )

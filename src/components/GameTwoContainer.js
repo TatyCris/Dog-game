@@ -49,17 +49,19 @@ class GameTwoContainer extends Component {
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
-            this.props.addPointToScore()
+                .then(() => { this.props.addPointToScore() })
+                .then(() => {
+                    this.render()
+                })
+                .then(() => {
+                    this.componentDidMount()
+                })
         } else {
             swal({
                 text: `This was the correct answer`,
                 buttons: "NEXT QUESTION",
                 icon: `${this.state.answers[2]}`
-            })
-            
-                .then(function () {
-                    window.location.href = "/game2"
-                })
+            }))
         }
     }
 
