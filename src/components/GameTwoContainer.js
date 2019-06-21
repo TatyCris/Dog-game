@@ -3,8 +3,9 @@ import GameTwo from './GameTwo';
 import { connect } from 'react-redux'
 import swal from "sweetalert";
 import { getRandomBreed } from '../actions/randomBreed'
+import { addPointToScore } from '../actions/game2'
 
-class Game2Container extends Component {
+class GameTwoContainer extends Component {
     state = { answers: [], breeds: [] }
 
     componentDidMount() {
@@ -32,7 +33,7 @@ class Game2Container extends Component {
         const randomAnswer1 = this.props.dogImage[0]
         const randomAnswer2 = this.props.dogImage[1]
         const correctAnswer = this.props.dogImage[2]
-       
+
         return [randomAnswer1, randomAnswer2, correctAnswer]
     }
 
@@ -42,21 +43,22 @@ class Game2Container extends Component {
 
     checkAnswer = (event) => {
         if (event.target.src === this.state.answers[2]) {
-           return swal({
+            swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
+            this.props.addPointToScore();
+        } else {
+            return swal({
+                text: "Wrong!",
+                buttons: "NEXT QUESTION",
+                icon: "error"
+            })
         }
-        
-        return swal({
-            text: "Wrong!",
-            buttons: "NEXT QUESTION",
-            icon: "error"
-        })
     }
 
-    render() {        
+    render() {
         return (
             <div>
                 <GameTwo
@@ -66,7 +68,7 @@ class Game2Container extends Component {
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-                    title= {this.state.breeds}
+                    title={this.state.breeds}
                     mixAnswers={this.mixAnswers}
                 />
             </div>
@@ -84,4 +86,9 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getRandomBreed })(Game2Container)
+export default connect(mapStatetoProps,
+    {
+        getRandomBreed,
+        addPointToScore
+    }
+)(GameTwoContainer)
