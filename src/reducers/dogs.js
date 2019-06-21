@@ -4,6 +4,7 @@ import { SET_IMAGES } from '../actions/images'
 const initialState = {
   breeds: [],
   images: [],
+  loading: false
 }
 
 export default (state = initialState, action = {}) => {
@@ -16,8 +17,14 @@ export default (state = initialState, action = {}) => {
     case SET_IMAGES:
       return {
         ...state,
-        images: action.payload
+        images: action.payload,
+        loading: false
       };
+    case 'IS_LOADING':
+      return {
+        ...state,
+        loading: true
+      }
     default:
       return state
   }

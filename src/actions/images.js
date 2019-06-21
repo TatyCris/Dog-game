@@ -9,9 +9,12 @@ export function setImages(images) {
     }
 }
 
-export function getImages(breeds, num) {
+export function getImages(breeds, num, setLoading = false) {
+    console.log('getImages test')
     const promises = breeds.map(breed => request.get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/${encodeURIComponent(num)}`))
     return dispatch => {
+        if (setLoading) dispatch({ type: 'IS_LOADING' })
+        
         Promise.all(promises)
             .then(response => {
                 dispatch(setImages(response.map(response => {

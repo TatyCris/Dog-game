@@ -6,6 +6,7 @@ import { getImages } from '../actions/images'
 class Image extends Component {
 
     componentDidMount() {
+        
         const breed = this.props.breed
         const num = this.props.num
         this.props.getImages(breed, num)
