@@ -63,7 +63,12 @@ class Game1Container extends Component {
                 .then(() => {
                     this.nextQuestion()
                 })
-            this.props.addPointToScore();
+                if(this.props.score< 10){
+                    this.props.addPointToScore()
+                }
+                else{
+
+                }
         } else {
             swal({
                 text: `Wrong! Correct answer is ${this.props.answers[2]}`,

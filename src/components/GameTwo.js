@@ -9,12 +9,11 @@ export default class GameTwo extends Component {
   render() {
     const images = this.props.mixAnswers(this.props.answers)
     const gameCondition = this.props.score < 10
-
     return (
 
       <div>
         {!gameCondition &&
-          <Title content='Finished the game, check the score!' />
+          <Title content='Finished the game!' />
         }
         {gameCondition &&
           <div>
@@ -30,7 +29,6 @@ export default class GameTwo extends Component {
         {!gameCondition &&
           <div>
             <Link to={`/game1`}><Button title="Play game 1" /></Link>
-            <Link to={`/game2`}><Button title="Play game 2" /></Link>
             <Link to={`/game3`}><Button title="Play game 3" /></Link>
           </div>
         }
