@@ -24,7 +24,7 @@ export default class GameTwo extends Component {
               {!images && 'Loading...'}
               {images && <div> <img src={images[0]} onClick={this.props.checkAnswer} alt="Dog" /><img src={images[1]} onClick={this.props.checkAnswer} alt="Dog" /><img src={images[2]} onClick={this.props.checkAnswer} alt="Dog" /></div>}
             </div>
-          </div>
+         </div>
         }
         <Score size={this.props.score} />
         {!gameCondition &&
