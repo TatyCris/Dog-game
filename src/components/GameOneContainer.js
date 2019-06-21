@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import GameOne from './GameOne';
 import { connect } from 'react-redux'
 import { getBreeds } from '../actions/breeds'
-import swal from "sweetalert"
+import swal from 'sweetalert'
 import { getAnswers } from '../actions/game1'
+import { Link } from 'react-router-dom'
 
 
 class Game1Container extends Component {
@@ -52,7 +53,9 @@ class Game1Container extends Component {
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
-            })
+            }).then(function(){
+                window.location.href ="/game1"   
+            });
         }
 
         return swal({
