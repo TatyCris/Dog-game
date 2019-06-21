@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import swal from "sweetalert";
 import { getRandomBreed } from '../actions/randomBreed'
 import { addPointToScore } from '../actions/game2'
+import { removePointToScore } from '../actions/game2'
+
 
 class GameTwoContainer extends Component {
     state = { answers: [], breeds: [] }
@@ -43,14 +45,19 @@ class GameTwoContainer extends Component {
 
     checkAnswer = (event) => {
         if (event.target.src === this.state.answers[2]) {
-            swal({
-                // console.log(event.target.src, this.state.answers[2])            
+            swal({         
                 text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
                 .then(() => {
-                    this.props.addPointToScore()
+                    if(this.props.score< 10){
+                        this.props.addPointToScore()
+                    }
+                    else{
+
+                    }
+                   
                 })
                 .then(() => {
                     this.componentDidMount()
@@ -90,9 +97,9 @@ const mapStatetoProps = (state) => {
     return {
         dogBreeds: state.randomBreeds.breeds,
         dogImage: state.randomBreeds.images,
-        score: state.game1.score,
-        total: state.game1.total,
-        lives: state.game1.lives
+        score: state.game2.score,
+        total: state.game2.total,
+        lives: state.game2.lives
     }
 }
 

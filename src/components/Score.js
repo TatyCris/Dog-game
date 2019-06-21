@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './Score.css';
 
-
-
 export default class Score extends Component {
+    
     render() {
         const sizeBar = this.props.size * 10 + '%'
         const divWidth = {
