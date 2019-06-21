@@ -13,7 +13,7 @@ export default class Button extends Component {
   }
 
   render() {
-    console.log('checkAnswer', this.props.checkAnswer);
+    // console.log('checkAnswer', this.props.checkAnswer);
     
     return (
       <button
