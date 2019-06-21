@@ -18,7 +18,6 @@ class DogsListContainer extends Component {
         this.props.getBreeds()
     }
 
-
     randomNumber = () => {
         return Math.floor(Math.random() * 2)
     }
