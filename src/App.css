@@ -21,13 +21,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
 }
 
 .App-link {
   color: #61dafb;
 }
-
-.swal-icon img{ width: 90%; max-width: 200px; margin: 0 auto; border: 2px solid red}
 
 @keyframes App-logo-spin {
   from {
