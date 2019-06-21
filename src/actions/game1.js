@@ -1,5 +1,5 @@
 export const ANSWERS = 'ANSWERS'
-export const ADD_POINT_TO_SCORE = "ADD_POINT_TO_SCORE1";
+export const ADD_POINT_TO_SCORE = "ADD_POINT_TO_SCORE";
 
 export const getAnswers = (answers) => {
     return {

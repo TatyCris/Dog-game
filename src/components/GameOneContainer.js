@@ -41,27 +41,26 @@ class Game1Container extends Component {
         return this.state.answers.sort(() => Math.random() - 0.5);
     }
 
-    nextQuestion = () => {
-        this.props.getAnswers(this.getAnswers())
-    }
+    // nextQuestion = () => {
+    //     this.props.getAnswers(this.getAnswers())
+    // }
 
     checkAnswer = (event) => {
         if (event.target.value === this.props.answers[2]) {
-            this.nextQuestion()
-            return swal({
+            // this.nextQuestion()
+            swal({
                 text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
+            this.props.addPointToScore();
+        } else {
+            swal({
+                text: "Wrong!",
+                buttons: "NEXT QUESTION",
+                icon: "error"
+            })
         }
-        this.props.addPointToScore();
-
-
-        return swal({
-            text: "Wrong!",
-            buttons: "NEXT QUESTION",
-            icon: "error"
-        })
     }
 
     render() {

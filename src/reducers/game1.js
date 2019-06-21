@@ -1,7 +1,6 @@
 import {
     ANSWERS,
-    ADD_POINT_TO_SCORE1,
-
+    ADD_POINT_TO_SCORE,
 } from '../actions/game1'
 
 const initialState = {
