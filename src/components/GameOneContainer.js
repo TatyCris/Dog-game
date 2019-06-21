@@ -50,7 +50,7 @@ class Game1Container extends Component {
         this.props.getAnswers(answers)
         
         const answer = answers[answers.length - 1]
-        this.props.getImages([answer], 1)
+        this.props.getImages(this.mixAnswers([answer]), 1)
     }
 
     checkAnswer = (event) => {
