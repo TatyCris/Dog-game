@@ -1,0 +1,8 @@
+.dog-breed-images h1 {
+    text-transform: capitalize;
+}
+
+.images-container {
+    margin-top: 30px;
+    margin-bottom: 80px; 
+}

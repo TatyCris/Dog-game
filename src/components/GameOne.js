@@ -21,7 +21,7 @@ export default class GameOne extends Component {
         <Button title={mixedAnswers[1]} checkAnswer={this.props.checkAnswer} />
         <Button title={mixedAnswers[2]} checkAnswer={this.props.checkAnswer}  />
         <Score />
-        <Link to={`/`}><Button title="go to Home Page" onclick={this.clicked} /></Link>
+        <Link to={`/`}><Button title="I need more practice!" onclick={this.clicked} /></Link>
       </div>
     )
   }

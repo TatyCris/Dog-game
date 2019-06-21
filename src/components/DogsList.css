@@ -1,8 +1,14 @@
 .dogs-list {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
-.dogs-list ul li{
+.dogs-list ul {
+    padding: 0;
+    column-count: 5;
+    margin-top: 80px;
+}
+
+.dogs-list ul li {
     list-style-type: none;
     margin: 3px;
 }
