@@ -1,10 +1,8 @@
 import {
-    ANSWERS,
     ADD_POINT_TO_SCORE,
-} from '../actions/game2'
+} from '../actions/game3'
 
 const initialState = {
-    answers: '',
     score: 0,
     total: 0,
     lives: 3
@@ -12,11 +10,6 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case ANSWERS:
-            return {
-                ...state,
-                answers: action.payload
-            }
         case ADD_POINT_TO_SCORE:
             return {
                 ...state,
