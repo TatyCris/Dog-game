@@ -17,6 +17,7 @@ export default class Button extends Component {
       >
         {this.props.title}
         {this.props.children}
+        
       </button>
     )
   }

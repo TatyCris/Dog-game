@@ -37,8 +37,8 @@ class Game1Container extends Component {
         return [randomAnswer1, randomAnswer2, correctAnswer]
     }
 
-    mixAnswers = () => {
-        return this.state.answers.sort(() => Math.random() - 0.5);
+    mixAnswers = (answers) => {
+        return [...answers].sort(() => Math.random() - 0.5)
     }
 
     nextQuestion = () => {
@@ -73,6 +73,7 @@ class Game1Container extends Component {
                     answers={this.props.answers}
                     image={this.props.dogImage}
                     checkAnswer={this.checkAnswer}
+                    mixAnswers= {this.mixAnswers}
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}

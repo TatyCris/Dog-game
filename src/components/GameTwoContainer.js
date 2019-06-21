@@ -36,12 +36,13 @@ class Game2Container extends Component {
         return [randomAnswer1, randomAnswer2, correctAnswer]
     }
 
-    mixAnswers = () => {
-        return this.state.answers.sort(() => Math.random() - 0.5);
+    mixAnswers = (answers) => {
+        return [...answers].sort(() => Math.random() - 0.5)
     }
 
     checkAnswer = (event) => {
         if (event.target.src === this.state.answers[2]) {
+            console.log(event.target.src, this.state.answers[2])
            return swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
