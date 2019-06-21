@@ -3,10 +3,14 @@ import GameOne from './GameOne';
 import { connect } from 'react-redux'
 import { getBreeds } from '../actions/breeds'
 import swal from 'sweetalert'
-import { getAnswers } from '../actions/game1'
-import { addPointToScore } from '../actions/game1'
+import { getAnswers, addPointToScore } from '../actions/game1'
+import { getImages } from '../actions/images'
 
 class Game1Container extends Component {
+    state = {
+        localanswers: []
+    }
+
     componentDidMount() {
         this.props.getBreeds()
     }
@@ -42,12 +46,15 @@ class Game1Container extends Component {
     }
 
     nextQuestion = () => {
-        this.props.getAnswers(this.getAnswers())
+        const answers = this.getAnswers()
+        this.props.getAnswers(answers)
+        
+        const answer = answers[answers.length - 1]
+        this.props.getImages([answer], 1)
     }
 
     checkAnswer = (event) => {
         if (event.target.value === this.props.answers[2]) {
-            // this.nextQuestion()
             swal({
                 text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
@@ -80,6 +87,9 @@ class Game1Container extends Component {
             <div>
                 <GameOne
                     answers={this.props.answers}
+                    // answers={this.setState({
+                    //     localAnswers: this.props.answers
+                    // })}
                     image={this.props.dogImage}
                     checkAnswer={this.checkAnswer}
                     mixAnswers={this.mixAnswers}
@@ -107,6 +117,7 @@ export default connect(mapStatetoProps,
     {
         getBreeds,
         getAnswers,
-        addPointToScore
+        addPointToScore,
+        getImages
     }
 )(Game1Container)
