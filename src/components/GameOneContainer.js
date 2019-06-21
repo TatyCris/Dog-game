@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getBreeds } from '../actions/breeds'
 import swal from "sweetalert"
 import { getAnswers } from '../actions/game1'
-
+import { addPointToScore } from '../actions/game1'
 
 class Game1Container extends Component {
     componentDidMount() {
@@ -49,11 +49,13 @@ class Game1Container extends Component {
         if (event.target.value === this.props.answers[2]) {
             this.nextQuestion()
             return swal({
-                text: "CORRECT!",
+                text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
         }
+        this.props.addPointToScore();
+
 
         return swal({
             text: "Wrong!",
@@ -76,7 +78,8 @@ class Game1Container extends Component {
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-                    // goHome={this.goHome}
+
+                // goHome={this.goHome}
                 />
             </div>
         )
@@ -94,4 +97,10 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getBreeds, getAnswers })(Game1Container)
+export default connect(mapStatetoProps,
+    {
+        getBreeds,
+        getAnswers,
+        addPointToScore
+    }
+)(Game1Container)
