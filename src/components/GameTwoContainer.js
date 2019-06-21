@@ -52,10 +52,12 @@ class GameTwoContainer extends Component {
             this.props.addPointToScore()
         } else {
             swal({
-                text: "Wrong!",
+                text: `This was the correct answer`,
                 buttons: "NEXT QUESTION",
-                icon: "error"
+                icon: `${this.state.answers[2]}`
+               
             })
+            
                 .then(function () {
                     window.location.href = "/game2"
                 })
