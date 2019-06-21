@@ -64,6 +64,10 @@ class GameTwoContainer extends Component {
         }
     }
 
+    endGame = () => {
+        
+    }
+
     render() {
         return (
             <div>
