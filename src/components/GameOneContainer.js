@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { getBreeds } from '../actions/breeds'
 import swal from 'sweetalert'
 import { getAnswers } from '../actions/game1'
-import { Link } from 'react-router-dom'
-
+import { addPointToScore } from '../actions/game1'
 
 class Game1Container extends Component {
     componentDidMount() {
@@ -42,27 +41,28 @@ class Game1Container extends Component {
         return [...answers].sort(() => Math.random() - 0.5)
     }
 
-    nextQuestion = () => {
-        this.props.getAnswers(this.getAnswers())
-    }
+    // nextQuestion = () => {
+    //     this.props.getAnswers(this.getAnswers())
+    // }
 
     checkAnswer = (event) => {
         if (event.target.value === this.props.answers[2]) {
-            this.nextQuestion()
-            return swal({
-                text: "CORRECT!",
+            // this.nextQuestion()
+            swal({
+                text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
-            }).then(function(){
-                window.location.href ="/game1"   
-            });
+            }).then(function () {
+                window.location.href = "/game1"
+            })
+            this.props.addPointToScore();
+        } else {
+            swal({
+                text: "Wrong!",
+                buttons: "NEXT QUESTION",
+                icon: "error"
+            })
         }
-
-        return swal({
-            text: "Wrong!",
-            buttons: "NEXT QUESTION",
-            icon: "error"
-        })
     }
 
     render() {
@@ -76,11 +76,12 @@ class Game1Container extends Component {
                     answers={this.props.answers}
                     image={this.props.dogImage}
                     checkAnswer={this.checkAnswer}
-                    mixAnswers= {this.mixAnswers}
+                    mixAnswers={this.mixAnswers}
                     score={this.props.score}
                     total={this.props.total}
                     lives={this.props.lives}
-                    // goHome={this.goHome}
+
+                // goHome={this.goHome}
                 />
             </div>
         )
@@ -98,4 +99,10 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getBreeds, getAnswers })(Game1Container)
+export default connect(mapStatetoProps,
+    {
+        getBreeds,
+        getAnswers,
+        addPointToScore
+    }
+)(Game1Container)
