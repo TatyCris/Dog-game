@@ -45,14 +45,14 @@ class GameTwoContainer extends Component {
         if (event.target.src === this.state.answers[2]) {
             swal({
                 // console.log(event.target.src, this.state.answers[2])            
-                text: "CORRECT!",
+                text: "GOOD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "success"
             })
             this.props.addPointToScore()
         } else {
             swal({
-                text: "Wrong!",
+                text: "BAD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "error"
             })
