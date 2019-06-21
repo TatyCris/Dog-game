@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 import Button from './Button'
 import './GameTwo.css'
 
-export default class GameOne extends Component {
+export default class GameTwo extends Component {
   render() {
-    const images = this.props.answers
+    const images = this.props.mixAnswers(this.props.answers)
 
     return (
       <div>
