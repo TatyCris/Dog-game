@@ -1,4 +1,7 @@
-import { ANSWERS } from '../actions/game1'
+import {
+    ANSWERS,
+    ADD_POINT_TO_SCORE,
+} from '../actions/game1'
 
 const initialState = {
     answers: '',
@@ -13,6 +16,11 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 answers: action.payload
+            }
+        case ADD_POINT_TO_SCORE:
+            return {
+                ...state,
+                score: state.score + action.payload
             }
         default:
             return state
