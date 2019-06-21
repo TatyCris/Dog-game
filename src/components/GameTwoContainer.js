@@ -55,7 +55,6 @@ class GameTwoContainer extends Component {
                 text: `This was the correct answer`,
                 buttons: "NEXT QUESTION",
                 icon: `${this.state.answers[2]}`
-               
             })
             
                 .then(function () {
