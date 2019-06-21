@@ -42,7 +42,6 @@ class Game2Container extends Component {
 
     checkAnswer = (event) => {
         if (event.target.src === this.state.answers[2]) {
-            console.log(event.target.src, this.state.answers[2])
            return swal({
                 text: "CORRECT!",
                 buttons: "NEXT QUESTION",
