@@ -18,7 +18,7 @@ export default class GameTwo extends Component {
           {images && <div> <img src={images[0]} onClick={this.props.checkAnswer} alt="Dog" /><img src={images[1]} onClick={this.props.checkAnswer} alt="Dog" /><img src={images[2]} onClick={this.props.checkAnswer} alt="Dog" /></div>}
         </div>
         <Score size={this.props.score} />
-        <Link to={`/`}><Button title="go to Home Page" onclick={this.clicked} /></Link>
+        <Link to={`/`}><Button title="I need more practice!" onclick={this.clicked} /></Link>
       </div>
     )
   }

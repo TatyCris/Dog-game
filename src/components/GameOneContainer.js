@@ -58,7 +58,7 @@ class Game1Container extends Component {
             this.props.addPointToScore();
         } else {
             swal({
-                text: "Wrong!",
+                text: "BAD BOY!",
                 buttons: "NEXT QUESTION",
                 icon: "error"
             })
