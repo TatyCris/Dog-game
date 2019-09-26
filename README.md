@@ -18,6 +18,7 @@ This is a React app game for the Dog Game real-world team project - which was bu
 
 ## Technologies used
 - React
+- React-router
 - Redux
 - CSS
 
