@@ -28,7 +28,7 @@ This is a React app game for the Dog Game real-world team project - which was bu
 - [x] If the user makes the wrong choice, the game should show them the right answer, then pause for 2 seconds before proceeding to the next question.
 - [x] The game must keep track of the user's performance and display a success rate (in percentages) on the page.
 - [x] The app contains a second game where the user will get a different question type. This game must show the user the name of a breed and 3 images of dogs. The user must select the correct image that matches the breed name.
-- [+/-] The app contains a third game that alternates the combines the 2 other games: sometimes it shows a picture and 3 breednames and sometimes it shows a breedname and 3 pictures. (a mix of features 3 & 7)
+- [ ] The app contains a third game that alternates the combines the 2 other games: sometimes it shows a picture and 3 breednames and sometimes it shows a breedname and 3 pictures. (a mix of features 3 & 7)
 - [ ] The user should also be able to use the keyboard to select their answer for quicker gameplay.
 - [ ] If a user sees a breed for the first time, the game should give them an easy hint so they can learn the right answer.
 - [ ] The game starts off with only 3 breeds and should gradually increase in difficulty. When the user has a streak of 5 correct answers, the game will add another 3 breeds into the mix, and so on.
