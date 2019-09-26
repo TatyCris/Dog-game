@@ -13,6 +13,7 @@ Game project in which users can view 10 images of any dog breed and play 3 diffe
 This is a React app game for the Dog Game real-world team project - which was built during week 4 at the Codaisseur Academy. For this project was applied Agile methodogy and Scrum principles.
 
 **[Check out the basic wireframe here!](https://sketch.cloud/s/oLZdx)**
+
 **[Check out the deployed app here!](https://pick-a-dog.netlify.com/)**
 
 ## Technologies used
